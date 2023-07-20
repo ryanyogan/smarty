@@ -73,7 +73,7 @@ export default function Sidebar() {
           </div>
 
           <h1 className={cn("text-2xl font-bold", montserrat.className)}>
-            Smarty
+            Yogi.
           </h1>
         </Link>
 
