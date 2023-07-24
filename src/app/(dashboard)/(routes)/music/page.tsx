@@ -70,7 +70,7 @@ export default function MusicPage() {
                       <Input
                         disabled={isLoading}
                         placeholder="Piano solo"
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        className="border-0 text-[16px] outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         {...field}
                       />
                     </FormControl>

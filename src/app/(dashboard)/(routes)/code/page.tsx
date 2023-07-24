@@ -81,7 +81,7 @@ export default function CodePage() {
                       <Input
                         disabled={isLoading}
                         placeholder="Simple toggle button using react hooks."
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        className="border-0 text-[16px] outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         {...field}
                       />
                     </FormControl>
