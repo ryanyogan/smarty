@@ -1,7 +1,7 @@
 "use client";
 
-import { tools } from "@/app/(dashboard)/(routes)/dashboard/page";
 import { useProModal } from "@/hooks/use-pro-modal";
+import { tools } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Check, Zap } from "lucide-react";
 import { Badge } from "../ui/badge";

@@ -24,7 +24,7 @@ export default function MobileSidebar({ apiLimitCount }: MobileSidebarProps) {
 
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger>
         <Button variant="ghost" size="icon" className="md:hidden">
           <Menu />
         </Button>
