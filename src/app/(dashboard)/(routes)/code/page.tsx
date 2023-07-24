@@ -130,9 +130,9 @@ export default function CodePage() {
                       </div>
                     ),
                     code: ({ node, ...props }) => {
-                      if (typeof props.inline === "boolean") {
-                        props.inline = props.inline.toString();
-                      }
+                      // if (typeof props.inline === "boolean") {
+                      //   props.inline = props.inline.toString();
+                      // }
 
                       return (
                         <code
