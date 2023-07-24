@@ -6,6 +6,7 @@ import Loader from "@/components/shared/loader";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useProModal } from "@/hooks/use-pro-modal";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { Music } from "lucide-react";
@@ -18,6 +19,7 @@ import { formSchema } from "./constants";
 export default function MusicPage() {
   const router = useRouter();
   const [music, setMusic] = useState<string | undefined>("");
+  const proModal = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     defaultValues: {
@@ -37,9 +39,10 @@ export default function MusicPage() {
       setMusic(response.data.audio);
 
       form.reset();
-    } catch (error) {
-      // TODO: Open Modal
-      console.log(error);
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }

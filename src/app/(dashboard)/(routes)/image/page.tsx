@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useProModal } from "@/hooks/use-pro-modal";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { Download, ImageIcon } from "lucide-react";
@@ -27,6 +28,7 @@ import { amountOptions, formSchema, resolutionOptions } from "./constants";
 export default function ImagePage() {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
+  const proModal = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     defaultValues: {
@@ -50,9 +52,10 @@ export default function ImagePage() {
       console.log(urls);
 
       form.reset();
-    } catch (error) {
-      // TODO: Open Modal
-      console.log(error);
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
