@@ -101,9 +101,9 @@ export default function ConversationPage() {
 
         <div className="space-y-4 mt-4">
           {isLoading && (
-            <p className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
               <Loader />
-            </p>
+            </div>
           )}
           {messages.length === 0 && !isLoading && (
             <Empty label="No conversation started." />

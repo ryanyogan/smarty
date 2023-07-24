@@ -47,11 +47,12 @@ export default function ImagePage() {
       const urls = response.data.map((image: { url: string }) => image.url);
 
       setImages(urls);
+      console.log(urls);
 
       form.reset();
     } catch (error) {
       // TODO: Open Modal
-      console.log(values);
+      console.log(error);
     } finally {
       router.refresh();
     }
@@ -160,9 +161,9 @@ export default function ImagePage() {
 
         <div className="space-y-4 mt-4">
           {isLoading && (
-            <p className="p-20">
+            <div className="p-20">
               <Loader />
-            </p>
+            </div>
           )}
           {images.length === 0 && !isLoading && (
             <Empty label="No images generated." />
@@ -171,7 +172,7 @@ export default function ImagePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
             {images.map((image) => (
               <Card key={image} className="rounded-lg overflow-hidden">
-                <div className="relative object-square">
+                <div className="relative aspect-square">
                   <Image alt="image" src={image} fill />
                 </div>
                 <CardFooter className="p-2">

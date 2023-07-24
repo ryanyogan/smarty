@@ -102,9 +102,9 @@ export default function CodePage() {
 
         <div className="space-y-4 mt-4">
           {isLoading && (
-            <p className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
               <Loader />
-            </p>
+            </div>
           )}
           {messages.length === 0 && !isLoading && (
             <Empty label="No conversation started." />
@@ -129,9 +129,18 @@ export default function CodePage() {
                         <pre {...props} />
                       </div>
                     ),
-                    code: ({ node, ...props }) => (
-                      <div className="bg-black/10 rounded-lg p-1" {...props} />
-                    ),
+                    code: ({ node, ...props }) => {
+                      if (typeof props.inline === "boolean") {
+                        props.inline = props.inline.toString();
+                      }
+
+                      return (
+                        <code
+                          className="bg-black/10 rounded-lg p-1"
+                          {...props}
+                        />
+                      );
+                    },
                   }}
                   className="text-sm overflow-hidden leading-7"
                 >
