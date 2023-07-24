@@ -80,7 +80,7 @@ export default function ConversationPage() {
                       <Input
                         disabled={isLoading}
                         placeholder="How do I change a damn lightbulb?"
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        className="border-0 outline-none text-[16px] md:text-base focus-visible:ring-0 focus-visible:ring-transparent"
                         {...field}
                       />
                     </FormControl>
