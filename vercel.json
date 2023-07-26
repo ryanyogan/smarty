@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "smarty",
+  "public": true,
+  "framework": "nextjs",
+  "functions": {
+    "api/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
+}
